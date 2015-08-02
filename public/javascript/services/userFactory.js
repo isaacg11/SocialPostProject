@@ -26,6 +26,13 @@ function register(user) {
 	});
 	return q.promise; //this line turns the function call in the navBarController into an object and to activate when the q.whatever method is used.
 }
+function setToken(token) {
+	localStorage.setItem('token', token);
+	o.status.username = getUsername();
+}
+function getToken() {
+	return localStorage['token'];
+}
 }
 
 
