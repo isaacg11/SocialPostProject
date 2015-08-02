@@ -1,0 +1,14 @@
+<div ng-controller="createCommentController as vm">
+	<form id="commentbox" ng-submit="vm.createComment()" class="well container">
+		<div class="form-input">
+			<label>Comment</label>
+			<textarea class="form-control" ng-model="vm.comment.description" rows="7"></textarea>
+		</div>
+		<br>
+		<div align="center" class="hcenter">
+			<button class="btn btn-lg btn-default" type="submit">Post Comment</button> <!--this line is a button that activates the createComment() func. in createCommentController.js-->
+		</div>
+	</form>
+</div>
+
+</div>

@@ -1,0 +1,57 @@
+#commentbox{
+	margin-top: 130px;
+}
+*{
+	box-sizing: border-box;
+}
+.hcenter {
+	text-align: center;
+}
+
+.vcenter {
+	vertical-align: middle;
+}
+
+.flex-container {
+	display:flex;
+	width:100%;
+	flex-wrap: wrap;
+}
+
+.task-col {
+	width:30%;
+	margin: calc(3.33% / 2);
+}
+
+.pcontent {
+	word-wrap: break-word;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+hr {
+	border-color: white;
+}
+
+.panel-title {
+	font-size: 1.5em;
+}
+#home{
+	margin-top: -15px;
+}
+#description{
+	font-size: 20px;
+	font-family: Arial;
+}
+#date{
+	font-size: 12px;
+}
+#registerinfo{
+	margin-top: 90px;
+}
