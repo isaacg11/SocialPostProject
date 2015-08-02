@@ -8,3 +8,4 @@
 
 //5. WHAT IS THE TRANSLATIOIN FOR: 	this.salt = crypto.randomBytes(16).toString('hex'); 
 
+//6. WHAT IS THE ORDER OF OPERATIONS FOR: $http.post('/api/Users/Register', user).success(function(res){......LINE 22 USERFACTORY.JS

@@ -6,6 +6,7 @@
 	userFactory.$inject = ['$http', '$q'];
 
 	function userFactory($http, $q) {
+		console.log("reached the factory func.");
 		var o = {};
 		o.status = {};
 		if(getToken()) {
@@ -20,7 +21,7 @@
 function register(user) {
 	var q = $q.defer();
 	$http.post('/api/Users/Register', user).success(function(res){ //this line says to send a post request to '/api/Users/Register' with the data obj. 'user' to THE SERVER.
-		setToken(res.token); // this line says to set the authentication token on the response obj. and assign it the property name of token.
+		setToken(res.token); // this line says to set the authentication token on the response obj. and assign it the property name of 'token'.
 		o.status.isLoggedIn = true; //this line says to make the status of the user to 'isLoggedIn' equal to true.
 		q.resolve(); //this line says to go back to the navBarController and activate the first property '.then'.
 	});
@@ -28,7 +29,7 @@ function register(user) {
 }
 function setToken(token) {
 	localStorage.setItem('token', token);
-	o.status.username = getUsername();
+	 o.status.username = getUsername();
 }
 function getToken() {
 	return localStorage['token'];

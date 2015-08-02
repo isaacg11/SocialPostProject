@@ -15,6 +15,10 @@
 		state('Register',{ //this line says when the ui-sref 'Register' is activated, go to the url below.
 			url:'/Register', //this line says it's using the url page tag of 'Register'
 			templateUrl:'/javascript/Users/register.html' //this line says to go to the javascript folder, go to the Users folder, and then render the register.html template.
+		}).
+		state('Login',{ //this line says when the ui-sref 'Login' is activated, go to the url below.
+			url:'/Login', //this line says it's using the url page tag of '/Login'
+			templateUrl: '/javascript/Users/login.html' //this line says to go to the javascript folder, go to the Users folder, and then render the login.html template.
 		});
 		$urlRouterProvider.otherwise('/'); //if no route is specified, go to this route.
 	}
