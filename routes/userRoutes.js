@@ -1,9 +1,10 @@
 var express = require('express'); //this line imports Express.
 var mongoose = require('mongoose'); //this line imports Mongoose
 var passport = require('passport'); //this line imports Passport
-var jwt = require('express-jwt'); //this line imports the Express-jwt
 var User = mongoose.model('User'); 
 var router = express.Router();
+var jwt = require('express-jwt'); //this line imports the Express-jwt
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 router.post("/Register", function(req, res, next){ //this line activates the function when a user sends a post request to '/Register'.
 	var user = new User(); //this line declares a variable 'user' equal to the object constructor 'new User()'; NOTE ---> 'User' is connected to the mongoose model.
@@ -16,7 +17,18 @@ router.post("/Register", function(req, res, next){ //this line activates the fun
 	});
 
 });
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+router.post('/Login', function(req, res, next) {
+	if(!req.body.username || !req.body.password) return res.status(400).send("Please fill out every field");
+	passport.authenticate('local', function(err, user, info) {
+		if(err) return next(err);
+		if(user) return res.json({token : user.generateJWT()});
+		return res.status(400).send(info);
+	})(req, res, next);
+});
 
-
-
+router.use(function(err, req, res, next) {
+	res.status(500).send(err);
+});
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 module.exports = router;
