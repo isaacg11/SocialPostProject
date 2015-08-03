@@ -13,12 +13,14 @@ router.post('/the/apiCall/Comment', function(req,res,next){ //this line activate
 		if(err) return next (err);
 		res.send({id: comment._id}); //this line says to send the response with the id it was assigned in the HF back to THE CLIENT.
 	});
+});
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	router.get('/the/apiCall/Comment', function(req,res, next) { //this line is a func. that runs when a get request is made at '/the/apiCall/Comment'.
 		Comment.find({}).exec(function(err,dbcomments){ //this line says to connect to mongo, find all({}) data in the collection, and then execute the function.
 			if (err) return next(err);
 			res.send(dbcomments); //this line says to send the response with 'dbcomments' data received from mongodb to THE CLIENT.
 		});
+	});
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 router.param('comment', function(req,res,next,id){ //this line says to find the parameter with the name of 'comment'
 	Comment.find({}).exec(function(err,comments){ //this line says to use the 'Comment' model and find the collection, and then execute the next function.
@@ -39,8 +41,6 @@ router.post('/the/apiCall/deleteComment/:comment',function(req,res,next){
 			else res.send('Comment Deleted'); //this line says if no errors, send 'Comment Deleted' to the CLIENT SIDE.
 		});
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-});
-});
 });
 
 

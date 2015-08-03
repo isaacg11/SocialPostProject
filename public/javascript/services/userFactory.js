@@ -27,6 +27,8 @@ function register(user) {
 		setToken(res.token); // this line says to set the authentication token on the response obj. and assign it the property name of 'token'.
 		o.status.isLoggedIn = true; //this line says to make the status of the user to 'isLoggedIn' equal to true.
 		q.resolve(); //this line says to go back to the navBarController and activate the first property '.then'.
+	}).error(function(res) {
+		console.error(res);
 	});
 	return q.promise; //this line turns the function call in the navBarController into an object and to activate when the q.whatever method is used.
 }

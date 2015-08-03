@@ -11,7 +11,7 @@ var userSchema = new mongoose.Schema({ //this line declares a variable 'UserSche
 
 userSchema.methods.setPassword = function(password) {
 	this.salt = crypto.randomBytes(16).toString('hex'); 
-	this.passwordHash =crypto.pbkd2Sync(password, this.salt, 1000, 64).toString('hex');
+	this.passwordHash =crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
 };
 
 userSchema.methods.validatePassword = function(password) {
